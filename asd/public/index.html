@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>biolink — Everything you want, right here.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     TOAST NOTIFICATION
+═══════════════════════════════════════════ -->
+<div id="toast">
+  <span id="toast-icon">✓</span>
+  <span id="toast-msg">Saved!</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE: LANDING
+═══════════════════════════════════════════ -->
+<div id="page-landing" class="page active">
+
+  <!-- NAV -->
+  <nav class="land-nav" id="land-nav">
+    <div class="land-logo">
+      <div class="logo-icon">⚡</div>
+      biolink
+    </div>
+    <div class="land-nav-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="land-nav-actions" id="land-nav-actions">
+      <!-- filled by JS based on session -->
+      <button class="btn btn-ghost btn-sm" onclick="showAuth('login')">Log In</button>
+      <button class="btn btn-primary btn-sm" onclick="showAuth('register')">Sign Up Free</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="land-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Over 1,200,000 profiles created
+    </div>
+
+    <h1 class="hero-title">
+      Everything you want,<br>
+      <span class="grad">right here.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Create a stunning link-in-bio page in minutes. Share your socials, links, music, and more — all in one place.
+    </p>
+
+    <div class="hero-claim-wrap">
+      <div class="hero-claim">
+        <span class="hero-claim-prefix">biolink.app/</span>
+        <input type="text" placeholder="yourname" id="hero-claim-input">
+        <button onclick="claimHero()">Claim Now →</button>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-num" id="live-user-count" data-stat="users">0</div>
+        <div class="hstat-label">Пользователей</div>
+      </div>
+      <div class="hstat-divider"></div>
+      <div class="hstat">
+        <div class="hstat-num" id="live-views-count">0</div>
+        <div class="hstat-label">Просмотров профилей</div>
+      </div>
+      <div class="hstat-divider"></div>
+      <div class="hstat">
+        <div class="hstat-num" data-target="540" data-suffix="K+">0</div>
+        <div class="hstat-label">Загрузок файлов</div>
+      </div>
+      <div class="hstat-divider"></div>
+      <div class="hstat">
+        <div class="hstat-num" data-target="42" data-suffix="K+">0</div>
+        <div class="hstat-label">Подписчиков</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="land-features" id="features">
+    <div class="section-head">
+      <span class="section-tag">Features</span>
+      <h2 class="section-title">Built for creators who care</h2>
+      <p class="section-sub">Everything you need to make your online presence stand out from the crowd.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">🎨</div>
+        <div class="feat-title">Deep Customization</div>
+        <div class="feat-desc">Custom colors, fonts, badges, layouts, and effects. Make your page uniquely yours with dozens of themes.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📊</div>
+        <div class="feat-title">Real-time Analytics</div>
+        <div class="feat-desc">Track profile views, link clicks, device types and geographic data right in your dashboard.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔗</div>
+        <div class="feat-title">Unlimited Links</div>
+        <div class="feat-desc">Add as many links as you want with custom icons, titles, descriptions and drag-to-reorder.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🎵</div>
+        <div class="feat-title">Music Widget</div>
+        <div class="feat-desc">Embed your favorite song directly on your profile with a beautiful built-in audio player widget.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">💬</div>
+        <div class="feat-title">Discord Integration</div>
+        <div class="feat-desc">Connect your Discord server and show live member counts and status on your profile page.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🖼️</div>
+        <div class="feat-title">Image Hosting</div>
+        <div class="feat-desc">Upload and share images and short videos instantly with your own fast, secure personal CDN.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW SECTION -->
+  <section class="land-preview">
+    <div class="section-head">
+      <span class="section-tag">Live Preview</span>
+      <h2 class="section-title">Your page. Your rules.</h2>
+      <p class="section-sub">See exactly what your visitors will see — beautifully designed and fully customizable.</p>
+    </div>
+    <div class="preview-showcase">
+      <div class="preview-phone">
+        <div class="preview-phone-inner">
+          <div style="text-align:center;padding:20px 16px 12px;position:relative;">
+            <div style="height:60px;background:linear-gradient(135deg,#1e1033,#0f172a);position:absolute;top:0;left:0;right:0;border-radius:16px 16px 0 0;overflow:hidden;"></div>
+            <div style="position:relative;margin-top:28px;margin-bottom:10px;">
+              <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#2d1b69,#7c3aed);margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:24px;border:2px solid #0a0a0f;">🐺</div>
+            </div>
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:16px;margin-bottom:4px;">@exampleuser</div>
+            <div style="display:flex;justify-content:center;gap:4px;margin-bottom:8px;">
+              <span style="font-size:9px;padding:2px 8px;border-radius:20px;background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.3);color:#fbbf24;font-weight:700;">★ PREMIUM</span>
+              <span style="font-size:9px;padding:2px 8px;border-radius:20px;background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.3);color:#60a5fa;font-weight:700;">✓ VERIFIED</span>
+            </div>
+            <div style="font-size:11px;color:#6b6882;margin-bottom:12px;">developer • designer • creator 🚀</div>
+            <div style="display:flex;justify-content:center;gap:6px;margin-bottom:12px;">
+              <div style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:12px;">𝕏</div>
+              <div style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:12px;">▶</div>
+              <div style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:12px;">💬</div>
+              <div style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:12px;">✈</div>
+            </div>
+          </div>
+          <div style="padding:0 12px;display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;">
+              <span style="font-size:14px;">🌐</span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:600;">My Website</div>
+                <div style="font-size:10px;color:#6b6882;">example.com</div>
+              </div>
+              <span style="font-size:12px;color:#6b6882;">›</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;">
+              <span style="font-size:14px;">📦</span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:600;">Projects</div>
+                <div style="font-size:10px;color:#6b6882;">Check my work</div>
+              </div>
+              <span style="font-size:12px;color:#6b6882;">›</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;">
+              <span style="font-size:14px;">☕</span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:600;">Buy me a coffee</div>
+                <div style="font-size:10px;color:#6b6882;">Support my work</div>
+              </div>
+              <span style="font-size:12px;color:#6b6882;">›</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="preview-features-list">
+        <div class="pfl-item">
+          <div class="pfl-dot"></div>
+          <div>
+            <div class="pfl-title">Profile Badges</div>
+            <div class="pfl-desc">Show off Premium, Verified, Staff and custom badges</div>
+          </div>
+        </div>
+        <div class="pfl-item">
+          <div class="pfl-dot"></div>
+          <div>
+            <div class="pfl-title">Social Links Row</div>
+            <div class="pfl-desc">Twitter, YouTube, Discord, TikTok and 15+ more platforms</div>
+          </div>
+        </div>
+        <div class="pfl-item">
+          <div class="pfl-dot"></div>
+          <div>
+            <div class="pfl-title">Custom Link Buttons</div>
+            <div class="pfl-desc">Beautiful cards with emoji icons and descriptions</div>
+          </div>
+        </div>
+        <div class="pfl-item">
+          <div class="pfl-dot"></div>
+          <div>
+            <div class="pfl-title">Typewriter Bio</div>
+            <div class="pfl-desc">Animated bio text that types and loops automatically</div>
+          </div>
+        </div>
+        <div class="pfl-item">
+          <div class="pfl-dot"></div>
+          <div>
+            <div class="pfl-title">View Counter</div>
+            <div class="pfl-desc">Real-time profile view count displayed on your page</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="land-pricing" id="pricing">
+    <div class="section-head">
+      <span class="section-tag">Pricing</span>
+      <h2 class="section-title">Simple, fair pricing</h2>
+      <p class="section-sub">Start free, upgrade when you need more power. Pay once, keep forever.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="price-name">Free</div>
+        <div class="price-val">$0</div>
+        <div class="price-period">Forever free</div>
+        <ul class="price-features">
+          <li>Profile page with bio</li>
+          <li>Up to 5 social links</li>
+          <li>Up to 5 custom links</li>
+          <li>Basic profile analytics</li>
+          <li>Standard themes</li>
+          <li class="no">Custom fonts</li>
+          <li class="no">Premium badges</li>
+          <li class="no">Advanced effects</li>
+          <li class="no">SEO customization</li>
+        </ul>
+        <button class="btn btn-ghost w-full" onclick="showAuth('register')">Get Started Free</button>
+      </div>
+      <div class="pricing-card popular">
+        <span class="popular-badge">⭐ Most Popular</span>
+        <div class="price-name">Premium</div>
+        <div class="price-val">$6.99</div>
+        <div class="price-period">One-time payment · Keep forever</div>
+        <ul class="price-features">
+          <li>Everything in Free</li>
+          <li>Unlimited links</li>
+          <li>Custom fonts & themes</li>
+          <li>Exclusive profile badges</li>
+          <li>Advanced animations</li>
+          <li>Music widget</li>
+          <li>Discord widget</li>
+          <li>Metadata & SEO tools</li>
+          <li>Priority support</li>
+        </ul>
+        <button class="btn btn-primary w-full" onclick="showAuth('register')">Upgrade to Premium</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="land-faq" id="faq">
+    <div class="section-head">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What is biolink? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">biolink is a link-in-bio platform that helps you share everything you do in one clean, customizable page. It's built to be faster, more aesthetic, and more powerful than platforms like Linktree.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is biolink free? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes! biolink is completely free to use. You can also upgrade to Premium once for $6.99 to unlock advanced customization, extended analytics, exclusive badges and more — forever.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How long does setup take? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Less than a minute. Sign up, add your links, customize your page, and start sharing instantly. No technical knowledge required.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I change my username? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes, you can change your username from the dashboard. Each username change is available after a cooldown period to prevent abuse.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="land-cta">
+    <div class="land-cta-inner">
+      <h2>Ready to claim your profile?</h2>
+      <p>Join over 1,200,000 creators already using biolink.</p>
+      <div class="hero-claim" style="max-width:400px;margin:0 auto;">
+        <span class="hero-claim-prefix">biolink.app/</span>
+        <input type="text" placeholder="yourname" id="cta-claim-input">
+        <button onclick="claimCta()">Claim →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="land-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-icon">⚡</div>
+          biolink
+        </div>
+        <p class="footer-desc">Create feature-rich, customizable and modern link-in-bio pages with biolink.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">General</div>
+          <a href="#" onclick="showAuth('login')">Login</a>
+          <a href="#" onclick="showAuth('register')">Sign Up</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Resources</div>
+          <a href="#">Help Center</a>
+          <a href="#">Changelog</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Copyright</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 biolink — All Rights Reserved.</span>
+      <span id="footer-status" style="color:var(--green);display:flex;align-items:center;gap:6px;font-size:12px;">
+        <span style="width:7px;height:7px;background:var(--green);border-radius:50%;display:inline-block;"></span>
+        All systems operational
+      </span>
+    </div>
+  </footer>
+</div>
+<!-- END LANDING -->
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE: AUTH
+═══════════════════════════════════════════ -->
+<div id="page-auth" class="page">
+  <div class="auth-bg"></div>
+  
+  <!-- Left panel — branding -->
+  <div class="auth-split-left">
+    <div class="asl-content">
+      <div class="auth-logo" style="margin-bottom:48px">
+        <div class="logo-icon">⚡</div>
+        biolink
+      </div>
+      <h2 class="asl-title">Твой профиль.<br>Твои правила.</h2>
+      <p class="asl-sub">Всё необходимое в одном месте — ссылки, соцсети, музыка и многое другое.</p>
+      <div class="asl-stats">
+        <div class="asl-stat">
+          <div class="asl-stat-val" id="auth-user-count">0</div>
+          <div class="asl-stat-label">Пользователей</div>
+        </div>
+        <div class="asl-stat-div"></div>
+        <div class="asl-stat">
+          <div class="asl-stat-val">∞</div>
+          <div class="asl-stat-label">Возможностей</div>
+        </div>
+      </div>
+      <div class="asl-features">
+        <div class="asl-feat"><span class="asl-feat-icon">✓</span> Неограниченные ссылки</div>
+        <div class="asl-feat"><span class="asl-feat-icon">✓</span> Реальная аналитика</div>
+        <div class="asl-feat"><span class="asl-feat-icon">✓</span> 30+ соцсетей</div>
+        <div class="asl-feat"><span class="asl-feat-icon">✓</span> Кастомизация профиля</div>
+        <div class="asl-feat"><span class="asl-feat-icon">✓</span> Бесплатно навсегда</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel — form -->
+  <div class="auth-split-right">
+    <button class="auth-back" onclick="showPage('landing')">
+      ← На главную
+    </button>
+
+    <div class="auth-box">
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Войти</button>
+        <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Регистрация</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="form-login" class="auth-form">
+        <div class="auth-form-title">С возвращением! 👋</div>
+        <div class="auth-form-sub">Войди в свой аккаунт biolink</div>
+        <div class="input-group">
+          <label class="input-label">Логин или Email</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">👤</span>
+            <input class="input input-with-icon" type="text" placeholder="yourname" id="login-user" onkeydown="if(event.key==='Enter')doLogin()">
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Пароль</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">🔒</span>
+            <input class="input input-with-icon" type="password" placeholder="••••••••" id="login-pass" onkeydown="if(event.key==='Enter')doLogin()">
+            <button class="input-eye" onclick="togglePasswordVisibility('login-pass',this)">👁</button>
+          </div>
+        </div>
+        <div id="login-error" class="auth-error" style="display:none"></div>
+        <button class="btn btn-primary w-full auth-submit-btn" onclick="doLogin()" id="login-btn">
+          <span class="btn-text">Войти в аккаунт →</span>
+          <span class="btn-spinner" style="display:none">⟳</span>
+        </button>
+        <div class="auth-hint">
+          Нет аккаунта? <a onclick="switchAuthTab('register')">Зарегистрируйся бесплатно</a>
+        </div>
+      </div>
+
+      <!-- REGISTER -->
+      <div id="form-register" class="auth-form" style="display:none">
+        <div class="auth-form-title">Создай профиль 🚀</div>
+        <div class="auth-form-sub">Бесплатно. Без подписки.</div>
+        <div class="input-group">
+          <label class="input-label">Никнейм</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">@</span>
+            <input class="input input-with-icon" type="text" placeholder="coolname" id="reg-username" 
+                   oninput="updateClaimPreview(this.value);checkUsernameAvail(this.value)"
+                   onkeydown="if(event.key==='Enter')doRegister()">
+            <span class="input-avail" id="username-avail"></span>
+          </div>
+          <span class="input-hint" id="claim-preview">biolink.app/coolname</span>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Email</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">✉</span>
+            <input class="input input-with-icon" type="email" placeholder="you@example.com" id="reg-email" onkeydown="if(event.key==='Enter')doRegister()">
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Пароль</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">🔒</span>
+            <input class="input input-with-icon" type="password" placeholder="Минимум 6 символов" id="reg-pass"
+                   oninput="checkPasswordStrength(this.value)"
+                   onkeydown="if(event.key==='Enter')doRegister()">
+            <button class="input-eye" onclick="togglePasswordVisibility('reg-pass',this)">👁</button>
+          </div>
+          <div class="pass-strength" id="pass-strength" style="display:none">
+            <div class="pass-bar"><div class="pass-fill" id="pass-fill"></div></div>
+            <span class="pass-label" id="pass-label"></span>
+          </div>
+        </div>
+        <div id="reg-error" class="auth-error" style="display:none"></div>
+        <button class="btn btn-primary w-full auth-submit-btn" onclick="doRegister()" id="reg-btn">
+          <span class="btn-text">Создать аккаунт бесплатно →</span>
+          <span class="btn-spinner" style="display:none">⟳</span>
+        </button>
+        <div class="auth-hint">
+          Уже есть аккаунт? <a onclick="switchAuthTab('login')">Войти</a>
+        </div>
+        <div class="auth-terms">
+          Регистрируясь, ты соглашаешься с <a href="#">Условиями использования</a> и <a href="#">Политикой конфиденциальности</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END AUTH -->
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE: DASHBOARD
+═══════════════════════════════════════════ -->
+<div id="page-dashboard" class="page">
+  <div class="dash-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <div class="sidebar-logo" onclick="showPage('landing')" style="cursor:pointer">
+        <div class="logo-icon">⚡</div>
+        biolink
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <!-- АККАУНТ (collapsible like guns.lol) -->
+        <div class="sidebar-group" id="sg-account">
+          <button class="sidebar-group-header active" onclick="toggleSidebarGroup('account')">
+            <div class="sgh-left">
+              <div class="sgh-avatar" id="sgh-avatar">🐺</div>
+              <span class="sgh-label">Аккаунт</span>
+            </div>
+            <span class="sgh-arrow" id="sgh-arrow-account">▲</span>
+          </button>
+          <div class="sidebar-group-items" id="sgi-account">
+            <button class="sidebar-subitem active" data-section="overview" onclick="switchSection(this)">Обзор</button>
+            <button class="sidebar-subitem" data-section="analytics" onclick="switchSection(this)">Аналитика</button>
+            <button class="sidebar-subitem" data-section="badges" onclick="switchSection(this)">Значки</button>
+            <button class="sidebar-subitem" data-section="settings" onclick="switchSection(this)">Настройки</button>
+          </div>
+        </div>
+
+        <!-- НАСТРОИТЬ -->
+        <button class="sidebar-item" data-section="customize" onclick="switchSection(this)">
+          <span class="si-icon">✏️</span>
+          <span>Настроить</span>
+        </button>
+
+        <!-- ССЫЛКИ -->
+        <button class="sidebar-item" data-section="links" onclick="switchSection(this)">
+          <span class="si-icon">🔗</span>
+          <span>Ссылки</span>
+        </button>
+
+        <!-- СОЦСЕТИ -->
+        <button class="sidebar-item" data-section="socials" onclick="switchSection(this)">
+          <span class="si-icon">📱</span>
+          <span>Соцсети</span>
+        </button>
+
+        <!-- ПРЕМИУМ -->
+        <button class="sidebar-item" data-section="premium" onclick="switchSection(this)">
+          <span class="si-icon">💎</span>
+          <span>Премиум</span>
+        </button>
+
+        <!-- IMAGE HOST -->
+        <button class="sidebar-item" data-section="imagehost" onclick="switchSection(this)">
+          <span class="si-icon">🖼️</span>
+          <span>Image Host</span>
+        </button>
+
+        <!-- ШАБЛОНЫ -->
+        <button class="sidebar-item" data-section="templates" onclick="switchSection(this)">
+          <span class="si-icon">🎨</span>
+          <span>Шаблоны</span>
+        </button>
+
+      </nav>
+
+      <!-- BOTTOM -->
+      <div class="sidebar-bottom">
+        <!-- Help box -->
+        <div class="sidebar-help-box" style="margin-bottom:10px">
+          <div class="shb-title">Есть вопрос или нужна помощь?</div>
+          <button class="btn btn-accent-outline btn-sm w-full" style="margin-top:8px" onclick="showToast('Help Center coming soon!','info')">
+            ❓ Центр помощи
+          </button>
+        </div>
+
+        <!-- My Page -->
+        <button class="btn-sidebar-action" onclick="showProfile()">
+          <span class="bsa-icon">↗</span> Посмотреть свою страницу
+        </button>
+
+        <!-- Share -->
+        <button class="btn-sidebar-action accent" onclick="shareProfile()">
+          <span class="bsa-icon">⤴</span> Поделиться профилем
+        </button>
+
+        <!-- User card -->
+        <div class="sidebar-user-card" id="sidebar-user-card" onclick="switchSection(document.querySelector('[data-section=settings]'))">
+          <div class="suc-avatar" id="sidebar-avatar-el">🐺</div>
+          <div class="suc-info">
+            <div class="suc-name" id="sidebar-uname">username</div>
+            <div class="suc-uid" id="sidebar-uid-label">UID 1</div>
+          </div>
+          <span class="suc-dots">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="dash-main">
+
+      <!-- HEADER -->
+      <div class="dash-header">
+        <div class="dash-breadcrumb-wrap">
+          <div class="dash-breadcrumb" id="dash-title">Обзор аккаунта</div>
+          <div class="dash-welcome" id="dash-welcome">Добро пожаловать!</div>
+        </div>
+        <div class="dash-header-right">
+          <div class="dash-header-search">
+            <span style="color:var(--muted);font-size:14px">🔍</span>
+            <input placeholder="Поиск..." style="background:none;border:none;color:var(--text);outline:none;font-size:13px;width:120px">
+          </div>
+          <button class="btn btn-ghost btn-sm dash-notif-btn" onclick="showToast('Уведомлений нет','info')" title="Уведомления">🔔</button>
+          <button class="btn btn-primary btn-sm" onclick="showProfile()">↗ Моя страница</button>
+          <button class="btn btn-sm" style="background:rgba(244,63,94,.15);color:#f43f5e;border:1px solid rgba(244,63,94,.3);" onclick="doLogout()">Выйти</button>
+        </div>
+      </div>
+
+      <!-- CONTENT AREA -->
+      <div class="dash-content" id="dash-content">
+
+        <!-- ══ OVERVIEW ══ -->
+        <div class="dash-section active" id="section-overview">
+          <div class="overview-banner">
+            <div class="ovb-left">
+              <div class="ovb-greeting" id="ovb-greeting">👋 Привет!</div>
+              <h2 class="ovb-title">Добро пожаловать в <span id="ovb-username">dashboard</span></h2>
+              <p class="ovb-sub">Твой профиль активен. Делись им с миром!</p>
+            </div>
+            <div class="ovb-actions">
+              <button class="btn btn-primary" onclick="showProfile()">👁 Посмотреть профиль</button>
+              <button class="btn btn-ghost" onclick="shareProfile()">🔗 Поделиться</button>
+            </div>
+          </div>
+
+          <div class="overview-stats">
+            <div class="ostat">
+              <div class="ostat-header">
+                <span class="ostat-label">Имя пользователя</span>
+                <span class="ostat-icon" style="background:rgba(124,92,252,.15)">✏️</span>
+              </div>
+              <div class="ostat-val" id="ov-username">—</div>
+              <div class="ostat-sub">Изменение доступно сейчас</div>
+            </div>
+            <div class="ostat">
+              <div class="ostat-header">
+                <span class="ostat-label">Алиас</span>
+                <span class="ostat-icon" style="background:rgba(251,191,36,.12)">👤</span>
+              </div>
+              <div class="ostat-val" style="font-size:18px;color:var(--muted2)">Недоступно</div>
+              <div class="ostat-sub" style="color:var(--yellow)">⭐ Только Premium</div>
+            </div>
+            <div class="ostat">
+              <div class="ostat-header">
+                <span class="ostat-label">UID</span>
+                <span class="ostat-icon" style="background:rgba(56,189,248,.12)">#</span>
+              </div>
+              <div class="ostat-val" id="ov-uid">—</div>
+              <div class="ostat-sub" id="ov-uid-sub">В числе первых 45%</div>
+            </div>
+            <div class="ostat">
+              <div class="ostat-header">
+                <span class="ostat-label">Просмотры профиля</span>
+                <span class="ostat-icon" style="background:rgba(244,114,182,.12)">👁</span>
+              </div>
+              <div class="ostat-val" id="ov-views">27</div>
+              <div class="ostat-sub"><span class="text-green">+5 просмотров</span> за последние 7 дней</div>
+            </div>
+          </div>
+
+          <h3 class="sub-section-title">Статистика профиля</h3>
+
+          <div class="ov-two-col">
+            <div>
+              <div class="card mb-16">
+                <div class="completion-header">
+                  <span class="card-title">Заполнение профиля</span>
+                  <span class="comp-pct" id="comp-pct">60% завершено</span>
+                </div>
+                <div class="comp-bar-track">
+                  <div class="comp-bar-fill" id="comp-bar" style="width:60%"></div>
+                </div>
+                <div class="comp-warning" id="comp-warning">
+                  <span class="comp-warn-icon">⚠️</span>
+                  <div>
+                    <strong>Ваш профиль ещё не заполнен!</strong>
+                    <div class="comp-warn-sub">Заполните профиль, чтобы сделать его заметнее и привлекательнее.</div>
+                  </div>
+                </div>
+                <div class="comp-items">
+                  <div class="comp-item done" id="ci-avatar" onclick="switchSection(document.querySelector('[data-section=customize]'))">
+                    <div class="ci-left"><div class="ci-dot done" id="ci-avatar-dot">✓</div>Загрузить аватар</div>
+                    <span class="ci-arr">→</span>
+                  </div>
+                  <div class="comp-item done" id="ci-bio" onclick="switchSection(document.querySelector('[data-section=customize]'))">
+                    <div class="ci-left"><div class="ci-dot done" id="ci-bio-dot">✓</div>Добавить описание</div>
+                    <span class="ci-arr">→</span>
+                  </div>
+                  <div class="comp-item" id="ci-discord" onclick="showToast('Подключите Discord в Настройках!','info')">
+                    <div class="ci-left"><div class="ci-dot" id="ci-discord-dot"></div>Подключить Discord аккаунт</div>
+                    <span class="ci-arr">→</span>
+                  </div>
+                  <div class="comp-item" id="ci-socials" onclick="switchSection(document.querySelector('[data-section=socials]'))">
+                    <div class="ci-left"><div class="ci-dot" id="ci-socials-dot"></div>Добавить соцсети</div>
+                    <span class="ci-arr">→</span>
+                  </div>
+                  <div class="comp-item" id="ci-links" onclick="switchSection(document.querySelector('[data-section=links]'))">
+                    <div class="ci-left"><div class="ci-dot" id="ci-links-dot"></div>Добавить ссылки</div>
+                    <span class="ci-arr">→</span>
+                  </div>
+                  <div class="comp-item" id="ci-2fa" onclick="showToast('2FA скоро появится!','info')">
+                    <div class="ci-left"><div class="ci-dot" id="ci-2fa-dot"></div>Включить 2FA</div>
+                    <span class="ci-arr">→</span>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="sub-section-title" style="display:flex;align-items:center;gap:10px;">
+                Аналитика профиля
+                <button class="btn btn-accent-outline btn-sm" onclick="switchSection(document.querySelector('[data-section=analytics]'))">Показать больше</button>
+              </h3>
+              <div class="analytics-mini-grid">
+                <div class="card">
+                  <div class="card-title mb-4">Устройства посетителей за последние <span style="color:var(--yellow)">7 дней</span></div>
+                  <div class="devices-list">
+                    <div class="device-row"><span class="device-icon">💻</span><span class="device-label">Desktop</span><div class="device-bar"><div class="device-fill" style="width:62%"></div></div><span class="device-pct">62%</span></div>
+                    <div class="device-row"><span class="device-icon">📱</span><span class="device-label">Mobile</span><div class="device-bar"><div class="device-fill" style="width:30%"></div></div><span class="device-pct">30%</span></div>
+                    <div class="device-row"><span class="device-icon">📟</span><span class="device-label">Tablet</span><div class="device-bar"><div class="device-fill" style="width:8%"></div></div><span class="device-pct">8%</span></div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-title mb-4">Просмотры профиля за последние <span style="color:var(--yellow)">7 дней</span></div>
+                  <div class="mini-bar-chart" id="mini-chart"></div>
+                  <div class="mini-bar-labels" id="mini-labels"></div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="card mb-16">
+                <div class="card-title">Управляйте своим аккаунтом</div>
+                <div class="card-sub">Изменяйте e-mail, имя пользователя и другое.</div>
+                <div class="manage-actions">
+                  <button class="manage-btn" onclick="switchSection(document.querySelector('[data-section=settings]'))">
+                    <div class="mb-icon">✏️</div> Изменить имя пользователя
+                  </button>
+                  <button class="manage-btn" onclick="switchSection(document.querySelector('[data-section=customize]'))">
+                    <div class="mb-icon">💬</div> Изменить отображаемое имя
+                  </button>
+                  <button class="manage-btn" onclick="switchSection(document.querySelector('[data-section=premium]'))">
+                    <div class="mb-icon">💎</div> Хотите больше? Откройте с Premium
+                  </button>
+                  <button class="manage-btn" onclick="switchSection(document.querySelector('[data-section=settings]'))">
+                    <div class="mb-icon">⚙️</div> Настройки аккаунта
+                  </button>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-title">Подключения</div>
+                <div class="card-sub">Свяжите свой аккаунт Discord с biolink</div>
+                <div class="discord-connect-row">
+                  <div class="discord-connect-box" id="discord-connect-box">
+                    <div class="dcb-icon">💬</div>
+                    <div class="dcb-text" id="dcb-text">Discord подключён</div>
+                  </div>
+                  <button class="dcb-remove" onclick="disconnectDiscord()">✕</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END OVERVIEW -->
+
+        <!-- ══ ANALYTICS ══ -->
+        <div class="dash-section" id="section-analytics">
+          <h2 class="section-page-title">Analytics</h2>
+          <div class="analytics-top-stats">
+            <div class="astat">
+              <div class="astat-val" id="an-total">27</div>
+              <div class="astat-label">Total Views</div>
+            </div>
+            <div class="astat">
+              <div class="astat-val">8</div>
+              <div class="astat-label">Unique Visitors</div>
+            </div>
+            <div class="astat">
+              <div class="astat-val">3</div>
+              <div class="astat-label">Link Clicks</div>
+            </div>
+            <div class="astat">
+              <div class="astat-val">32%</div>
+              <div class="astat-label">Click Rate</div>
+            </div>
+          </div>
+          <div class="analytics-charts-grid">
+            <div class="card" style="grid-column:1/-1">
+              <div class="card-title mb-4">Profile Views <span style="font-size:11px;font-weight:400;color:var(--accent2);background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);padding:2px 8px;border-radius:20px;margin-left:6px;">Last 30 days</span></div>
+              <div class="big-bar-chart" id="big-chart"></div>
+              <div class="big-bar-labels" id="big-labels"></div>
+            </div>
+            <div class="card">
+              <div class="card-title mb-16">Visitor Devices</div>
+              <div class="devices-list">
+                <div class="device-row"><span class="device-icon">💻</span><span class="device-label">Desktop</span><div class="device-bar"><div class="device-fill" style="width:62%"></div></div><span class="device-pct">62%</span></div>
+                <div class="device-row"><span class="device-icon">📱</span><span class="device-label">Mobile</span><div class="device-bar"><div class="device-fill" style="width:30%"></div></div><span class="device-pct">30%</span></div>
+                <div class="device-row"><span class="device-icon">📟</span><span class="device-label">Tablet</span><div class="device-bar"><div class="device-fill" style="width:8%"></div></div><span class="device-pct">8%</span></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title mb-16">Top Referrers</div>
+              <div class="devices-list">
+                <div class="device-row"><span class="device-icon">𝕏</span><span class="device-label">Twitter</span><div class="device-bar"><div class="device-fill" style="width:45%"></div></div><span class="device-pct">45%</span></div>
+                <div class="device-row"><span class="device-icon">📨</span><span class="device-label">Direct</span><div class="device-bar"><div class="device-fill" style="width:35%"></div></div><span class="device-pct">35%</span></div>
+                <div class="device-row"><span class="device-icon">💬</span><span class="device-label">Discord</span><div class="device-bar"><div class="device-fill" style="width:20%"></div></div><span class="device-pct">20%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ BADGES ══ -->
+        <div class="dash-section" id="section-badges">
+          <h2 class="section-page-title">Badges</h2>
+          <p style="color:var(--muted2);margin-bottom:24px;font-size:14px;">Select which badges to display on your profile. Some are earned, some require Premium.</p>
+          <div class="badges-grid" id="badges-grid">
+            <!-- generated by JS -->
+          </div>
+        </div>
+
+        <!-- ══ SETTINGS ══ -->
+        <div class="dash-section" id="section-settings">
+          <h2 class="section-page-title">Account Settings</h2>
+          <div class="settings-grid">
+            <div class="card">
+              <div class="card-title mb-16">Change Username</div>
+              <div class="input-group">
+                <label class="input-label">New Username</label>
+                <input class="input" type="text" id="settings-username" placeholder="new_username">
+              </div>
+              <button class="btn btn-primary btn-sm" style="margin-top:12px" onclick="saveUsername()">Save Username</button>
+            </div>
+            <div class="card">
+              <div class="card-title mb-16">Change Email</div>
+              <div class="input-group">
+                <label class="input-label">New Email</label>
+                <input class="input" type="email" id="settings-email" placeholder="new@email.com">
+              </div>
+              <button class="btn btn-primary btn-sm" style="margin-top:12px" onclick="saveEmail()">Save Email</button>
+            </div>
+            <div class="card">
+              <div class="card-title mb-16">Change Password</div>
+              <div class="input-group">
+                <label class="input-label">New Password</label>
+                <input class="input" type="password" id="settings-pass" placeholder="Min. 6 characters">
+              </div>
+              <button class="btn btn-primary btn-sm" style="margin-top:12px" onclick="savePassword()">Update Password</button>
+            </div>
+            <div class="card">
+              <div class="card-title mb-16">Two-Factor Authentication</div>
+              <p style="font-size:13px;color:var(--muted2);margin-bottom:12px;">Add an extra layer of security to your account.</p>
+              <button class="btn btn-ghost btn-sm" onclick="showToast('2FA setup coming soon!','info')">🔒 Enable 2FA</button>
+            </div>
+            <div class="card" style="border-color:rgba(244,63,94,.25)">
+              <div class="card-title mb-4" style="color:var(--red)">Danger Zone</div>
+              <p style="font-size:13px;color:var(--muted2);margin-bottom:16px;">These actions are permanent and cannot be undone.</p>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <button class="btn btn-sm" style="background:rgba(244,63,94,.1);color:var(--red);border:1px solid rgba(244,63,94,.3)" onclick="showToast('Account deletion coming soon!','error')">Delete Account</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ CUSTOMIZE ══ -->
+        <div class="dash-section" id="section-customize">
+          <h2 class="section-page-title">Customize Profile</h2>
+          <div class="customize-layout">
+            <div class="customize-left">
+
+              <!-- Avatar & Display Name -->
+              <div class="card">
+                <div class="card-title mb-16">🖼️ Avatar & Display Name</div>
+                <div class="avatar-edit-row">
+                  <div class="avatar-big" id="avatar-preview-big" onclick="document.getElementById('avatar-file').click()">
+                    <span id="avatar-emoji-display">🐺</span>
+                  </div>
+                  <div>
+                    <div style="font-size:13px;font-weight:600;margin-bottom:4px;">Choose an emoji avatar</div>
+                    <div style="font-size:12px;color:var(--muted2);margin-bottom:10px;">Click the avatar to change emoji</div>
+                    <div class="emoji-picker" id="emoji-picker">
+                      <span onclick="setAvatar('🐺')">🐺</span><span onclick="setAvatar('🦊')">🦊</span><span onclick="setAvatar('🐱')">🐱</span><span onclick="setAvatar('🐸')">🐸</span>
+                      <span onclick="setAvatar('🎭')">🎭</span><span onclick="setAvatar('👾')">👾</span><span onclick="setAvatar('🤖')">🤖</span><span onclick="setAvatar('💀')">💀</span>
+                      <span onclick="setAvatar('🔥')">🔥</span><span onclick="setAvatar('⚡')">⚡</span><span onclick="setAvatar('🌙')">🌙</span><span onclick="setAvatar('🌊')">🌊</span>
+                      <span onclick="setAvatar('🎮')">🎮</span><span onclick="setAvatar('🎵')">🎵</span><span onclick="setAvatar('🦋')">🦋</span><span onclick="setAvatar('👑')">👑</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group" style="margin-top:16px;">
+                  <label class="input-label">Display Name</label>
+                  <input class="input" type="text" id="cust-displayname" placeholder="Your display name" oninput="livePreview()">
+                </div>
+                <div class="input-group" style="margin-top:12px;">
+                  <label class="input-label">Bio <span style="color:var(--muted);font-weight:400;text-transform:none">(typewriter lines, one per row)</span></label>
+                  <textarea class="input" id="cust-bio" rows="3" placeholder="Line 1&#10;Line 2&#10;Line 3" oninput="livePreview()" style="resize:vertical;line-height:1.5"></textarea>
+                </div>
+              </div>
+
+              <!-- Banner Color -->
+              <div class="card">
+                <div class="card-title mb-16">🎨 Banner Color</div>
+                <div class="theme-grid">
+                  <div class="theme-swatch selected" style="background:linear-gradient(135deg,#1e1033,#0f172a)" onclick="setBanner(this,'linear-gradient(135deg,#1e1033,#0f172a)')"></div>
+                  <div class="theme-swatch" style="background:linear-gradient(135deg,#1a1a2e,#16213e)" onclick="setBanner(this,'linear-gradient(135deg,#1a1a2e,#16213e)')"></div>
+                  <div class="theme-swatch" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364)" onclick="setBanner(this,'linear-gradient(135deg,#0f2027,#203a43,#2c5364)')"></div>
+                  <div class="theme-swatch" style="background:linear-gradient(135deg,#200122,#6f0000)" onclick="setBanner(this,'linear-gradient(135deg,#200122,#6f0000)')"></div>
+                  <div class="theme-swatch" style="background:linear-gradient(135deg,#0a3d0a,#1a5c1a)" onclick="setBanner(this,'linear-gradient(135deg,#0a3d0a,#1a5c1a)')"></div>
+                  <div class="theme-swatch" style="background:linear-gradient(135deg,#1a0533,#3d0068)" onclick="setBanner(this,'linear-gradient(135deg,#1a0533,#3d0068)')"></div>
+                  <div class="theme-swatch" style="background:linear-gradient(135deg,#2d1515,#5c2020)" onclick="setBanner(this,'linear-gradient(135deg,#2d1515,#5c2020)')"></div>
+                  <div class="theme-swatch" style="background:linear-gradient(135deg,#001a33,#003366)" onclick="setBanner(this,'linear-gradient(135deg,#001a33,#003366)')"></div>
+                  <div class="theme-swatch" style="background:linear-gradient(135deg,#1a1a1a,#333)" onclick="setBanner(this,'linear-gradient(135deg,#1a1a1a,#333)')"></div>
+                  <div class="theme-swatch" style="background:linear-gradient(135deg,#3d2900,#7a5200)" onclick="setBanner(this,'linear-gradient(135deg,#3d2900,#7a5200)')"></div>
+                </div>
+              </div>
+
+              <!-- Music Widget -->
+              <div class="card">
+                <div class="card-title mb-16">🎵 Music Widget</div>
+                <div class="input-group">
+                  <label class="input-label">Song Title</label>
+                  <input class="input" type="text" id="cust-song-title" placeholder="My Favorite Song" oninput="livePreview()">
+                </div>
+                <div class="input-group" style="margin-top:12px">
+                  <label class="input-label">Artist Name</label>
+                  <input class="input" type="text" id="cust-song-artist" placeholder="Artist Name" oninput="livePreview()">
+                </div>
+              </div>
+
+              <!-- Discord Widget -->
+              <div class="card">
+                <div class="card-title mb-16">💬 Discord Widget</div>
+                <div class="input-group">
+                  <label class="input-label">Server Name</label>
+                  <input class="input" type="text" id="cust-dc-name" placeholder="My Discord Server" oninput="livePreview()">
+                </div>
+                <div class="input-group" style="margin-top:12px">
+                  <label class="input-label">Member Count</label>
+                  <input class="input" type="text" id="cust-dc-members" placeholder="1,247" oninput="livePreview()">
+                </div>
+                <div class="input-group" style="margin-top:12px">
+                  <label class="input-label">Invite URL</label>
+                  <input class="input" type="text" id="cust-dc-url" placeholder="https://discord.gg/..." oninput="livePreview()">
+                </div>
+              </div>
+
+              <button class="btn btn-primary" style="width:100%" onclick="saveCustomize()">💾 Save Changes</button>
+            </div>
+
+            <!-- LIVE PREVIEW -->
+            <div class="preview-sticky-col">
+              <div class="preview-label">
+                <span>👁 Live Preview</span>
+                <button class="btn btn-ghost btn-sm" onclick="showProfile()">Open ↗</button>
+              </div>
+              <div class="preview-frame-outer">
+                <div id="live-preview-inner">
+                  <!-- rendered by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ LINKS ══ -->
+        <div class="dash-section" id="section-links">
+          <h2 class="section-page-title">Links</h2>
+          <p style="color:var(--muted2);font-size:14px;margin-bottom:20px;">Add, edit or remove links displayed on your profile.</p>
+          <div id="links-list" class="links-manager-list"></div>
+          <button class="btn btn-ghost" onclick="addLink()" style="margin-top:4px">+ Add Link</button>
+          <button class="btn btn-primary" onclick="saveLinks()" style="margin-top:12px;margin-left:8px">💾 Save Links</button>
+        </div>
+
+        <!-- ══ SOCIALS ══ -->
+        <div class="dash-section" id="section-socials">
+          <h2 class="section-page-title">🔗 Свяжите свои профили в соцсетях.</h2>
+          <p style="color:var(--muted2);font-size:14px;margin-bottom:24px;">Выберите соцсеть, чтобы добавить её в профиль.</p>
+
+          <!-- Icon grid -->
+          <div class="social-icon-grid" id="social-icon-grid">
+            <!-- Generated by JS -->
+          </div>
+
+          <!-- Custom URL -->
+          <div class="social-custom-url-card" onclick="openCustomSocial()">
+            <div class="scu-icon">🌐</div>
+            <div>
+              <div class="scu-title">Добавить пользовательский URL</div>
+              <div class="scu-sub">Используйте свой URL и выберите подходящую иконку.</div>
+            </div>
+          </div>
+
+          <!-- Social URL modal -->
+          <div class="social-url-modal" id="social-url-modal" style="display:none">
+            <div class="sum-inner">
+              <div class="sum-header">
+                <div class="sum-network-icon" id="sum-network-icon">🌐</div>
+                <div>
+                  <div class="sum-network-name" id="sum-network-name">Соцсеть</div>
+                  <div class="sum-hint">Введите URL профиля</div>
+                </div>
+                <button class="sum-close" onclick="closeSocialModal()">✕</button>
+              </div>
+              <input class="input" type="url" id="sum-url-input" placeholder="https://...">
+              <div class="sum-actions">
+                <button class="btn btn-ghost" onclick="closeSocialModal()">Отмена</button>
+                <button class="btn btn-primary" onclick="saveSocialURL()">Сохранить</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Added socials list -->
+          <div id="socials-added-list" style="margin-top:24px"></div>
+        </div>
+
+        <!-- ══ PREMIUM ══ -->
+        <div class="dash-section" id="section-premium">
+          <h2 class="section-page-title">Premium</h2>
+          <div class="premium-hero-card">
+            <div class="phc-left">
+              <div class="phc-tag">⭐ Premium Plan</div>
+              <h3 class="phc-title">Unlock the full biolink experience</h3>
+              <p class="phc-desc">One-time payment. Keep forever. No subscriptions.</p>
+              <div class="phc-features">
+                <span>✓ Custom fonts</span><span>✓ Exclusive badges</span>
+                <span>✓ Advanced effects</span><span>✓ Alias support</span>
+                <span>✓ Music widget</span><span>✓ Discord widget</span>
+                <span>✓ Unlimited links</span><span>✓ SEO tools</span>
+              </div>
+              <button class="btn btn-primary btn-lg" onclick="showToast('Payment system coming soon!','info')">Get Premium for $6.99 →</button>
+            </div>
+            <div class="phc-price">
+              <span class="phc-price-val">$6.99</span>
+              <span class="phc-price-sub">one-time</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ IMAGE HOST ══ -->
+        <div class="dash-section" id="section-imagehost">
+          <h2 class="section-page-title">Image Host</h2>
+          <div class="upload-drop-zone" id="drop-zone" onclick="showToast('Image hosting coming soon!','info')">
+            <div class="dz-icon">📁</div>
+            <div class="dz-title">Drop files here or click to upload</div>
+            <div class="dz-sub">PNG, JPG, GIF, WebP up to 10MB</div>
+          </div>
+          <div class="uploaded-grid" id="uploaded-grid">
+            <div style="text-align:center;color:var(--muted);padding:40px;font-size:14px">No uploads yet.</div>
+          </div>
+        </div>
+
+        <!-- ══ TEMPLATES ══ -->
+        <div class="dash-section" id="section-templates">
+          <h2 class="section-page-title">🎨 Найдите идеальный шаблон для профиля</h2>
+          <p style="color:var(--muted2);font-size:14px;margin-bottom:20px;">Просматривайте шаблоны сообщества или создайте свой.</p>
+
+          <div class="tmpl-tabs">
+            <button class="tmpl-tab active" onclick="switchTmplTab('library',this)">Библиотека шаблонов</button>
+            <button class="tmpl-tab" onclick="switchTmplTab('favorites',this)">Избранные</button>
+            <button class="tmpl-tab" onclick="switchTmplTab('recent',this)">Недавние</button>
+            <button class="btn btn-primary btn-sm" style="margin-left:auto" onclick="showToast('Создание шаблонов скоро!','info')">+ Создать шаблон</button>
+          </div>
+
+          <div class="tmpl-search-row">
+            <div class="tmpl-search-wrap">
+              <span class="tmpl-search-icon">🔍</span>
+              <input class="input" type="text" placeholder="Ищите шаблоны сообщества" id="tmpl-search" oninput="filterTemplates(this.value)" style="padding-left:36px;background:rgba(255,255,255,.04)">
+            </div>
+          </div>
+
+          <div class="templates-grid" id="templates-grid">
+            <!-- rendered by JS -->
+          </div>
+        </div>
+
+      </div>
+      <!-- END dash-content -->
+    </main>
+  </div>
+</div>
+<!-- END DASHBOARD -->
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE: PROFILE (public view)
+═══════════════════════════════════════════ -->
+<div id="page-profile" class="page">
+  <!-- Click to enter overlay -->
+  <div class="click-overlay" id="click-overlay" onclick="enterProfile()">
+    <div class="click-text">click to enter...</div>
+  </div>
+
+  <div class="profile-page-bg"></div>
+
+  <div class="profile-wrap" id="profile-wrap">
+    <!-- Profile Card -->
+    <div class="p-card fi" id="p-card">
+      <div class="p-banner">
+        <div class="p-banner-inner" id="p-banner-bg"></div>
+      </div>
+      <div class="p-content">
+        <div class="p-avatar-wrap">
+          <div class="p-avatar" id="p-avatar">🐺</div>
+          <div class="p-online-dot"></div>
+        </div>
+        <div class="p-username">
+          <span class="p-at">@</span><span id="p-username-text">username</span>
+        </div>
+        <div class="p-badges" id="p-badges"></div>
+        <div class="p-bio">
+          <span id="p-bio-text"></span><span class="p-cursor"></span>
+        </div>
+        <div class="p-stats">
+          <div class="p-stat">
+            <span class="p-stat-val" id="p-views-counter">0</span>
+            <span class="p-stat-key">Profile Views</span>
+          </div>
+          <div class="p-stat">
+            <span class="p-stat-val" id="p-uid-stat">—</span>
+            <span class="p-stat-key">User ID</span>
+          </div>
+          <div class="p-stat">
+            <span class="p-stat-val" id="p-joined-stat">2025</span>
+            <span class="p-stat-key">Joined</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Socials -->
+    <div class="p-socials fi" id="p-socials-row"></div>
+
+    <!-- Discord widget -->
+    <div class="p-discord fi" id="p-discord-widget" style="display:none">
+      <div class="p-dc-icon">🎮</div>
+      <div style="flex:1">
+        <div class="p-dc-name" id="p-dc-name">My Server</div>
+        <div class="p-dc-status"><span id="p-dc-members">0</span> members</div>
+      </div>
+      <a class="p-dc-join" href="#" id="p-dc-join">Join</a>
+    </div>
+
+    <!-- Audio widget -->
+    <div class="p-audio fi" id="p-audio-widget" style="display:none">
+      <div class="p-audio-top">
+        <div class="p-audio-art">🎵</div>
+        <div>
+          <div class="p-audio-title" id="p-audio-title">Favorite Song</div>
+          <div class="p-audio-artist" id="p-audio-artist">Artist Name</div>
+        </div>
+        <div class="playing-bars"><s></s><s></s><s></s><s></s></div>
+      </div>
+      <div class="p-audio-ctrl">
+        <button class="p-audio-play" id="p-play-btn" onclick="togglePlay()">▶</button>
+        <div class="p-audio-track">
+          <div class="p-audio-fill" id="p-audio-fill"></div>
+        </div>
+        <span class="p-audio-time" id="p-audio-time">0:00 / 3:47</span>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="p-links" id="p-links-container"></div>
+
+    <!-- Views -->
+    <div class="p-view-row fi">
+      👁 <span id="p-views-text">27</span> profile views
+    </div>
+
+    <!-- Footer -->
+    <div class="p-foot">
+      Powered by <a href="#" onclick="showPage('landing')">biolink</a>
+    </div>
+  </div>
+</div>
+<!-- END PROFILE -->
+
+<script src="script.js"></script>
+</body>
+</html>
